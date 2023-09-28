@@ -1,10 +1,20 @@
 class Solution {
     public String findLongestWord(String s, List<String> d) {
         String result = "";
-        // sort dictionary : if length of strings are equal sort lexicographical otherwise sort accd to length desc order
-        d.sort((String a, String b) -> a.length() == b.length() ? a.compareTo(b): b.length() - a.length() );
+        /**
+         with sorting : O(NlogN + N)
+         sort dictionary : if length of strings are equal sort lexicographical  (a.compareTo(b)) otherwise sort accd to length desc order
+        */
+        // d.sort((String a, String b) -> a.length() == b.length() ? a.compareTo(b): b.length() - a.length() );
+
+        /**
+        * w/o sorting: O(N)
+        */
         for(String str : d){
-            if(isSubstring(s,str)) return result = str;
+            if(isSubstring(s,str)) {
+                // length, str > result || length is equal but str is lexicographically small
+                if(str.length() > result.length() || (str.length() == result.length() && str.compareTo(result) < 1) ) result = str;
+            }
         }
         return result;
     }
