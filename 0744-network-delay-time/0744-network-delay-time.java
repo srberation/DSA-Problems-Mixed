@@ -1,4 +1,4 @@
-import java.util.*;
+// simply use dijikstra algo which will use Priority Queue,and form an array with nodes and minimum distance from the given source 
 
 class Pair implements Comparable<Pair> {
     int wt;
