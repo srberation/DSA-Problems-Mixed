@@ -3,6 +3,8 @@ class Solution {
         int n = matrix.length;
         int m = matrix[0].length;
 
+        // simply create 2 hashset for row and col, add zeros (I,j) in them and then loop it and make matrix to zero
+
         Set<Integer> rows = new HashSet<>();
         Set<Integer> cols = new HashSet<>();
 
