@@ -34,8 +34,7 @@ public class MyCalendar {
     // Method to book events
     public boolean book(int start, int end) {
         // Check for the closest event that ends before the new event starts
-        Integer lower = pairs.lowerKey(end);
-        
+        Integer lower = pairs.lowerKey(end);   
         /**
         [10, 20], [15, 25] => here lower = pairs.lowerKey(25) => 20 & 20 <= 15(false) so conflict will happen
          */
