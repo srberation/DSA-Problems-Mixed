@@ -1,23 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
-        List<List<Integer>> res = new ArrayList<>();
-        helper(k, n, new ArrayList<>(), 1, 9, res);
+        List<List<Integer>> res = new ArrayList();
+        genSubset(1,9,new ArrayList(), res, k, n);
         return res;
     }
 
-    public void helper(int k, int target, ArrayList<Integer> curr, int ind, int end, List<List<Integer>> res) {
-        if (target == 0 && curr.size() == k) {
-            res.add(new ArrayList<>(curr));
+    public void genSubset(int start, int end, List<Integer> curr, List<List<Integer>> res, int k , int n){
+        if(curr.size() == k && n==0 ){
+            res.add(new ArrayList(curr));
             return;
         }
-
-        for (int i = ind; i <= end && curr.size() < k; i++) {
+        for(int i = start ;i<=end;i++){
             curr.add(i);
-            helper(k, target - i, curr, i + 1, end, res);
+            genSubset(i+1,end,curr, res,k,n-i);
             curr.remove(curr.size() - 1);
+
         }
     }
 }
+
+
